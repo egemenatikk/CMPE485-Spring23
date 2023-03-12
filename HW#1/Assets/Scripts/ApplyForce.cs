@@ -21,6 +21,6 @@ public class ApplyForce : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(-10, 0, 0);
+       rb.AddForce(-500 * Time.deltaTime, 0, 0);
     }
 }
