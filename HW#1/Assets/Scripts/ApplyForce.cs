@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ApplyForce : MonoBehaviour
 {
+
+    public Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class ApplyForce : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void FixedUpdate()
+    {
+        rb.AddForce(-10, 0, 0);
     }
 }
