@@ -5,7 +5,7 @@ using UnityEngine;
 public class PrefabSpawner : MonoBehaviour
 {
     private bool isSpacePressed = false;
-    private float y = 30;
+    private float y = 10;
 
     public GameObject prefabToSpawn;
 
@@ -33,7 +33,7 @@ public class PrefabSpawner : MonoBehaviour
     {
         if (isSpacePressed)
         {
-            Instantiate(prefabToSpawn, new Vector3(150, y, 0), Quaternion.identity);
+            Instantiate(prefabToSpawn, new Vector3(110, y, 0), Quaternion.identity);
             y += 10;
         }
     }
