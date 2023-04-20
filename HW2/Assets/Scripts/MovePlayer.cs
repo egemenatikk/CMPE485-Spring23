@@ -10,6 +10,8 @@ public class MovePlayer : MonoBehaviour
     private bool isSPressed = false;
     private bool isDPressed = false;
     private bool isSpacePressed = false;
+    private bool isGrounded = true;
+    private LayerMask floorLayer; 
 
     private float forceMagnitude = 1000f;
     private float jumpForce = 20000f;
@@ -17,6 +19,7 @@ public class MovePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        floorLayer = LayerMask.GetMask("Floor");
     }
 
     // Update is called once per frame
@@ -58,7 +61,9 @@ public class MovePlayer : MonoBehaviour
             isDPressed = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.5f, floorLayer);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             isSpacePressed = true;
         }
