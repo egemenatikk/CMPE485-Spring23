@@ -44,5 +44,6 @@ public class CheckPlayerKeyFall : MonoBehaviour
     void QuitGame()
     {
         Application.Quit();
+        gameOverPanel.SetActive(false);
     }
 }

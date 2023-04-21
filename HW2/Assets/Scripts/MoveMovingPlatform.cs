@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveMovingPlatform : MonoBehaviour
 {
     private float deltaZ = 0.05f;
-    private float waitDuration = 0.01f;
+    private float waitDuration = 0.03f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class MoveMovingPlatform : MonoBehaviour
         while (true)
         {
             transform.position = transform.position + new Vector3(0, 0, deltaZ);
-            if ((transform.position.z > 160f) || (transform.position.z < 141.5f))
+            if ((transform.position.z > 160f) || (transform.position.z < 146f))
                 deltaZ = deltaZ * -1;
 
             yield return new WaitForSeconds(waitDuration);

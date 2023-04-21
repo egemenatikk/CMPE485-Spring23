@@ -2,28 +2,31 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CheckTrap : MonoBehaviour
+public class CheckPlayerWon : MonoBehaviour
 {
-    public GameObject gameOverPanel;
+    public GameObject keyObject;
+    public GameObject gameWonPanel;
     public Button yesButton;
     public Button noButton;
 
-    private bool isGameOver = false;
+    private bool isGameWon = false;
 
     void Start()
     {
-        gameOverPanel.SetActive(false);
+        gameWonPanel.SetActive(false);
         Time.timeScale = 1;
+        
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!isGameOver && collision.gameObject.layer == LayerMask.NameToLayer("Trap"))
+        if (!isGameWon && collision.gameObject == keyObject)
         {
-            isGameOver = true;
+            isGameWon = true;
             Time.timeScale = 0;
+            transform.rotation = Quaternion.Euler(0f, 270f, 0f);
 
-            gameOverPanel.SetActive(true);
+            gameWonPanel.SetActive(true);
             yesButton.onClick.AddListener(ReloadScene);
             noButton.onClick.AddListener(QuitGame);
         }
@@ -43,6 +46,6 @@ public class CheckTrap : MonoBehaviour
     void QuitGame()
     {
         Application.Quit();
-        gameOverPanel.SetActive(false);
+        gameWonPanel.SetActive(false);
     }
 }
