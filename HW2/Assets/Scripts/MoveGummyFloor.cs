@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveGummyFloor : MonoBehaviour
 {
     private float deltaY = 0.01f;
-    private float waitDuration = 1f;
+    private float waitDuration = 0.03f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class MoveGummyFloor : MonoBehaviour
         while (true)
         {
             transform.position = transform.position + new Vector3(0, deltaY, 0);
-            if ((transform.position.y > 0.01f) || (transform.position.y < -0.04f))
+            if ((transform.position.y > 0.3f) || (transform.position.y < -2.99f))
                 deltaY = deltaY * -1;
 
             yield return new WaitForSeconds(waitDuration);
