@@ -6,16 +6,10 @@ public class MoveGummyFloor : MonoBehaviour
 {
     private float deltaY = 0.01f;
     private float waitDuration = 0.02f;
-    // Start is called before the first frame update
+ 
     void Start()
     {
         StartCoroutine(MoveUpDown());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator MoveUpDown()

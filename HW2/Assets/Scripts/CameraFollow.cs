@@ -6,20 +6,14 @@ public class CameraFollow : MonoBehaviour
     private float smoothness = 5f;
     private Vector3 offset = new Vector3(0, 2f, -5f);
 
-
     private Vector3 velocity = Vector3.zero;
-    // Start is called before the first frame update
+
     void Start()
     {
         transform.position = player.position + offset;
         transform.rotation = player.rotation;
     }
 
-    void Update()
-    {
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         float horizontalRotation = Input.GetAxis("Mouse X");

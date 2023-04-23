@@ -16,13 +16,11 @@ public class MovePlayer : MonoBehaviour
     private float forceMagnitude = 1000f;
     private float jumpForce = 20000f;
 
-    // Start is called before the first frame update
     void Start()
     {
         floorLayer = LayerMask.GetMask("Floor");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey("w"))

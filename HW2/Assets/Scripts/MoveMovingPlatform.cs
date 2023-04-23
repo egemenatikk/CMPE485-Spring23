@@ -6,16 +6,10 @@ public class MoveMovingPlatform : MonoBehaviour
 {
     private float deltaZ = 0.05f;
     private float waitDuration = 0.03f;
-    // Start is called before the first frame update
+    
     void Start()
     {
         StartCoroutine(MovePlatform());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     IEnumerator MovePlatform()
