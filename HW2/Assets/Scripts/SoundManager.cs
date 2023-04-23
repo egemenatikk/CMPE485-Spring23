@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        audioSource.loop = true;
     }
 
     public void ToggleSound()
