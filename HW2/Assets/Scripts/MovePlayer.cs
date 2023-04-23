@@ -14,7 +14,7 @@ public class MovePlayer : MonoBehaviour
     private LayerMask floorLayer; 
 
     private float forceMagnitude = 1000f;
-    private float jumpForce = 20000f;
+    private float jumpForce = 13000f;
 
     void Start()
     {
