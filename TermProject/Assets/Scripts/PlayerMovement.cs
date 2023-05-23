@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.B) && isGrounded)
+        if (Input.GetKey(KeyCode.B) && isGrounded && !isRolling)
         {
             animator.SetBool("isBlocking", true);
             isBlocking = true;
