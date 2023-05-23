@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
     private bool isRolling = false;
+    private bool isBlocking = false;
 
     [SerializeField]
     private Transform cameraTransform;
@@ -43,6 +44,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.B) && isGrounded)
+        {
+            animator.SetBool("isBlocking", true);
+            isBlocking = true;
+        } else
+        {
+            animator.SetBool("isBlocking", false);
+            isBlocking = false;
+        }
+
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -96,6 +107,8 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = true;
                 jumpButtonPressedTime = null;
                 lastGroundedTime = null;
+                animator.SetBool("isBlocking", false);
+                isBlocking = false;
             }
         } else
         {
