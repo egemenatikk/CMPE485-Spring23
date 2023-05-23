@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float? jumpButtonPressedTime;
     private bool isJumping;
     private bool isGrounded;
+    private bool isRolling = false;
 
     [SerializeField]
     private Transform cameraTransform;
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
             lastGroundedTime = Time.time;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !isRolling)
         {
             jumpButtonPressedTime = Time.time;
         }
@@ -111,6 +112,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (movementDirection != Vector3.zero)
         {
+            if ((Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)) && !isRolling && isGrounded)
+            {
+                StartCoroutine(WaitOneSecondForRoll());
+            }
+
             animator.SetBool("isWalking", true);
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
@@ -146,5 +152,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+    private IEnumerator WaitOneSecondForRoll()
+    {
+        animator.SetBool("isRolling", true);
+        isRolling = true;
+        yield return new WaitForSeconds(1);
+        animator.SetBool("isRolling", false);
+        isRolling = false;
     }
 }
