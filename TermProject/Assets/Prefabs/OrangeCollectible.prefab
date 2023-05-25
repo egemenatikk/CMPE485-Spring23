@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1570065461301121872}
   - component: {fileID: 324892134}
   - component: {fileID: 1724719057909169369}
+  - component: {fileID: 1508968058}
   m_Layer: 0
   m_Name: OrangeCollectible
   m_TagString: Untagged
@@ -59,6 +60,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181f00f185c93e6478354a882cb826c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1508968058
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570065461301121873}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73f917c7666cbcc4aa5b7cf35e2e0947, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1570065460697143208
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5692451627811597106}
   - component: {fileID: 5012358954376308432}
   - component: {fileID: 4527870574480534583}
+  - component: {fileID: 1083067887}
   m_Layer: 0
   m_Name: WhiteCollectible
   m_TagString: Untagged
@@ -59,6 +60,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181f00f185c93e6478354a882cb826c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1083067887
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692451627811597105}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78c8c36e766267b46bd32134d3bcff5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &5692451626291675412
 PrefabInstance:
   m_ObjectHideFlags: 0
