@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +11,7 @@ public class ZombieMovement : MonoBehaviour
     //private CharacterController characterController;
     private Transform player;
     private Transform waypoint;
+    //private PlayerMovement playerMovement;
 
     private float chaseRange = 15f;
 
@@ -25,6 +27,7 @@ public class ZombieMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         //characterController = GetComponent<CharacterController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        //playerMovement = player.GetComponent<PlayerMovement>();
 
         GameObject waypoints = GameObject.FindGameObjectWithTag("Waypoints");
         foreach (Transform t in waypoints.transform)
@@ -57,7 +60,9 @@ public class ZombieMovement : MonoBehaviour
                 movementDirection.Normalize();
                 Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime);*/
-                transform.LookAt(player);
+                Vector3 playerPosition = player.position;
+                Vector3 toLookPosition = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
+                transform.LookAt(toLookPosition);
                 //agent.SetDestination(player.position);
                 agent.Move(transform.forward * Time.deltaTime);
                 animator.SetBool("isChasing", true);
@@ -79,7 +84,9 @@ public class ZombieMovement : MonoBehaviour
             float distance = Vector3.Distance(player.position, transform.position);
             if (distance < chaseRange)
             {
-                transform.LookAt(player);
+                Vector3 playerPosition = player.position;
+                Vector3 toLookPosition = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
+                transform.LookAt(toLookPosition);
                 //agent.SetDestination(player.position);
                 agent.Move(transform.forward * Time.deltaTime);
                 animator.SetBool("isChasing", true);
@@ -89,11 +96,16 @@ public class ZombieMovement : MonoBehaviour
 
         } else if (isChasing)
         {
-            transform.LookAt(player);
+            Vector3 playerPosition = player.position;
+            Vector3 toLookPosition = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
+            transform.LookAt(toLookPosition);
             //agent.SetDestination(player.position);
             agent.Move(transform.forward * Time.deltaTime);
 
             float distance = Vector3.Distance(player.position, transform.position);
+            float yDistance = Mathf.Abs(player.position.y - transform.position.y);
+            float xDistance = Mathf.Abs(player.position.x - transform.position.x);
+            float zDistance = Mathf.Abs(player.position.z - transform.position.z);
             if (distance > 25f)
             {
                 agent.SetDestination(waypoint.position);
@@ -102,23 +114,35 @@ public class ZombieMovement : MonoBehaviour
                 isChasing = false;
                 isReturning = true;
             }
-            else if (distance < 1f)
+            else if (distance < 1f || (yDistance > 1f && xDistance < 0.7f && zDistance < 0.7f))
             {
-                transform.LookAt(player);
+                playerPosition = player.position;
+                toLookPosition = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
+                transform.LookAt(toLookPosition);
                 animator.SetBool("isAttacking", true);
                 isChasing = false;
                 isAttacking = true;
             }
         } else if (isAttacking)
         {
-            transform.LookAt(player);
-            float distance = Vector3.Distance(player.position, animator.transform.position);
-            if (distance > 2f)
+            Vector3 playerPosition = player.position;
+            Vector3 toLookPosition = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
+            transform.LookAt(toLookPosition);
+            float distance = Vector3.Distance(player.position, transform.position);
+            float yDistance = Mathf.Abs(player.position.y - transform.position.y);
+            float xDistance = Mathf.Abs(player.position.x - transform.position.x);
+            float zDistance = Mathf.Abs(player.position.z - transform.position.z);
+
+            if ((yDistance > 1f && xDistance < 0.7f && zDistance < 0.7f))
+            {
+                
+            }
+            else if (distance > 1.3f)
             {
                 animator.SetBool("isAttacking", false);
                 isAttacking = false;
                 isChasing = true;
-            }
+        }
         }
     }
 

@@ -12,7 +12,7 @@ public class CollectibleCollision : MonoBehaviour
         {
             if (gameObject.name.StartsWith("Pink") || gameObject.name.StartsWith("Purple"))
             {
-                scoreCounter.CollectibleCollected(150);
+                scoreCounter.CollectibleCollected(50);
             } else if (gameObject.name.StartsWith("Brown"))
             {
                 scoreCounter.CollectibleCollected(250);

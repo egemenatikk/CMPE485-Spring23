@@ -174,4 +174,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isRolling", false);
         isRolling = false;
     }
+
+    public bool getIsJumping()
+    {
+        return isJumping;
+    }
 }
