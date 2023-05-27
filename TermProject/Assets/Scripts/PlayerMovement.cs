@@ -175,8 +175,13 @@ public class PlayerMovement : MonoBehaviour
         isRolling = false;
     }
 
-    public bool getIsJumping()
+    public bool GetIsJumping()
     {
         return isJumping;
+    }
+
+    public bool GetIsBlocking()
+    {
+        return isBlocking;
     }
 }

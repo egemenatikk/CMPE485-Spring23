@@ -9,17 +9,18 @@ public class ZombieHealthController : MonoBehaviour
     private Animator animator;
     public HealthBarUI healthBarUI;
     public GameObject healthBarCanvas;
+    //private Rigidbody rb;
+    //private CharacterController characterController;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        //rb = GetComponent<Rigidbody>();
+        //rb.isKinematic = true;
+        //characterController = GetComponent<CharacterController>();
+        //characterController.enabled = false;
         healthBarUI.SetMaxHealth(health);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
@@ -30,9 +31,14 @@ public class ZombieHealthController : MonoBehaviour
         {
             GetComponent<Collider>().enabled = false;
             GetComponent<ZombieMovement>().enabled = false;
+            //GetComponent<NavMeshAgent>().speed = 0.1f;
+            //GetComponent<NavMeshAgent>().SetDestination(transform.position);
             //GetComponent<NavMeshAgent>().enabled = false;
+            //rb.isKinematic = false;
             //healthBarUI.enabled = false;
-            healthBarCanvas.SetActive(false); ;
+            //characterController.enabled = true;
+            healthBarCanvas.SetActive(false);
+            GetComponent<ZombieHealthController>().enabled = false; 
             int randomNumber = Random.Range(0, 2);
             if (randomNumber == 0)
             {
@@ -42,5 +48,10 @@ public class ZombieHealthController : MonoBehaviour
                 animator.SetTrigger("fallForward");
             }
         }
+    }
+
+    public bool GetIsZombieDead()
+    {
+        return health <= 0;
     }
 }

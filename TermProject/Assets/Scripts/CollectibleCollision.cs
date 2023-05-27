@@ -7,27 +7,42 @@ public class CollectibleCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         ScoreCounter scoreCounter = other.GetComponent<ScoreCounter>();
+        PlayerHealthController playerHealthController = other.GetComponent<PlayerHealthController>();
 
         if (scoreCounter != null)
         {
-            if (gameObject.name.StartsWith("Pink") || gameObject.name.StartsWith("Purple"))
+            if (gameObject.name.StartsWith("Red"))
             {
-                scoreCounter.CollectibleCollected(50);
-            } else if (gameObject.name.StartsWith("Brown"))
+                if (!playerHealthController.GetIsHealthFull())
+                {
+                    playerHealthController.FullHealth();
+                    gameObject.SetActive(false);
+                }
+            } else
             {
-                scoreCounter.CollectibleCollected(250);
-            } else if (gameObject.name.StartsWith("Black") || gameObject.name.StartsWith("Orange"))
-            {
-                scoreCounter.CollectibleCollected(350);
-            } else if (gameObject.name.StartsWith("Yellow") || gameObject.name.StartsWith("White"))
-            {
-                scoreCounter.CollectibleCollected(500);
-            } else if (gameObject.name.StartsWith("Blue") || gameObject.name.StartsWith("Green"))
-            {
-                scoreCounter.CollectibleCollected(750);
-            }
+                if (gameObject.name.StartsWith("Pink") || gameObject.name.StartsWith("Purple"))
+                {
+                    scoreCounter.CollectibleCollected(50);
+                }
+                else if (gameObject.name.StartsWith("Brown"))
+                {
+                    scoreCounter.CollectibleCollected(250);
+                }
+                else if (gameObject.name.StartsWith("Black") || gameObject.name.StartsWith("Orange"))
+                {
+                    scoreCounter.CollectibleCollected(350);
+                }
+                else if (gameObject.name.StartsWith("Yellow") || gameObject.name.StartsWith("White"))
+                {
+                    scoreCounter.CollectibleCollected(500);
+                }
+                else if (gameObject.name.StartsWith("Blue") || gameObject.name.StartsWith("Green"))
+                {
+                    scoreCounter.CollectibleCollected(750);
+                }
 
-            gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

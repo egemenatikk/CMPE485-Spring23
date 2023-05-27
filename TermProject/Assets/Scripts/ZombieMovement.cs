@@ -137,12 +137,12 @@ public class ZombieMovement : MonoBehaviour
             {
                 
             }
-            else if (distance > 1.3f)
+            else if (distance >= 1.3f)
             {
                 animator.SetBool("isAttacking", false);
                 isAttacking = false;
                 isChasing = true;
-        }
+            }
         }
     }
 
@@ -151,4 +151,8 @@ public class ZombieMovement : MonoBehaviour
         Vector3 velocity = animator.deltaPosition;
         characterController.Move(velocity);
     }*/
+
+    public bool GetIsAttacking() {
+        return isAttacking;
+    }
 }
