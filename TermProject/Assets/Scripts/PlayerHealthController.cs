@@ -39,6 +39,7 @@ public class PlayerHealthController : MonoBehaviour
             healthBarCanvas.SetActive(false);
             GetComponent<PlayerHealthController>().enabled = false;
             animator.SetTrigger("fall");
+            Application.Quit();
         } else
         {
             animator.SetTrigger("getHit");
