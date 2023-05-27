@@ -26,7 +26,20 @@ public class ZombieMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         //characterController = GetComponent<CharacterController>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        int selectedPlayerIndex = PlayerPrefs.GetInt("selectedCharacterIndex");
+        if (selectedPlayerIndex == 0)
+        {
+            player = GameObject.Find("Male A").transform;
+        }
+        else if (selectedPlayerIndex == 1)
+        {
+            player = GameObject.Find("Male B").transform;
+        }
+        else if (selectedPlayerIndex == 2)
+        {
+            player = GameObject.Find("Male C").transform;
+        }
+        //player = GameObject.FindGameObjectWithTag("Player").transform;
         //playerMovement = player.GetComponent<PlayerMovement>();
 
         GameObject waypoints = GameObject.FindGameObjectWithTag("Waypoints");

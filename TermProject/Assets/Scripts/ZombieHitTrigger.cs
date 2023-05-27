@@ -14,7 +14,18 @@ public class ZombieHitTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHealthController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthController>();
+        int selectedPlayerIndex = PlayerPrefs.GetInt("selectedCharacterIndex");
+        if (selectedPlayerIndex == 0)
+        {
+            playerHealthController = GameObject.Find("Male A").GetComponent<PlayerHealthController>();
+        } else if (selectedPlayerIndex == 1)
+        {
+            playerHealthController = GameObject.Find("Male B").GetComponent<PlayerHealthController>();
+        } else if (selectedPlayerIndex == 2)
+        {
+            playerHealthController = GameObject.Find("Male C").GetComponent<PlayerHealthController>();
+        }
+
     }
 
     private void Update()
