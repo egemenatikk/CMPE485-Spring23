@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class WeaponHitTrigger : MonoBehaviour
 {
     private PlayerCombat playerCombat;
-    private float cooldown = 0.8f;
+    private float cooldown = 0.75f;
     private float lastCollisionTime = 0f;
     private bool isFirstAttack = true;
 

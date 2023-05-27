@@ -7,7 +7,7 @@ public class PlayerCombat : MonoBehaviour
     private Animator animator;
     public int numberOfClicks = 0;
     private float lastClickedTime = 0;
-    private float maxComboDelay = 2f;
+    private float maxComboDelay = 1.75f;
     private bool isAttacking = false;
     private float damageAmount = 10f;
 
