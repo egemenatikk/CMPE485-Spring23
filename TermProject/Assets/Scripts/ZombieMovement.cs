@@ -35,12 +35,16 @@ public class ZombieMovement : MonoBehaviour
             if (gameObject.name == "Zombie1" && t.name == "Waypoint1")
             {
                 waypoint = t;
-            }
-            else if (gameObject.name == "Zombie2" && t.name == "Waypoint2")
+            } else if (gameObject.name == "Zombie2" && t.name == "Waypoint2")
             {
                 waypoint = t;
-            }
-            else if (gameObject.name == "Zombie3" && t.name == "Waypoint3")
+            } else if (gameObject.name == "Zombie3" && t.name == "Waypoint3")
+            {
+                waypoint = t;
+            } else if (gameObject.name == "Zombie4" && t.name == "Waypoint4")
+            {
+                waypoint = t;
+            } else if (gameObject.name == "Zombie5" && t.name == "Waypoint5")
             {
                 waypoint = t;
             }

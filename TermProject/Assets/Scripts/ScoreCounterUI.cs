@@ -12,8 +12,8 @@ public class ScoreCounterUI : MonoBehaviour
         scoreText = GetComponent<TextMeshProUGUI>();   
     }
 
-    public void updateScoreText(ScoreCounter scoreCounter) 
+    public void UpdateScoreText(int score) 
     {
-        scoreText.text = scoreCounter.score.ToString();
+        scoreText.text = score.ToString();
     } 
 }

@@ -55,4 +55,9 @@ public class PlayerHealthController : MonoBehaviour
     {
         return health == 100f;
     }
+
+    public bool GetIsAlive()
+    {
+        return health > 0;
+    }
 }

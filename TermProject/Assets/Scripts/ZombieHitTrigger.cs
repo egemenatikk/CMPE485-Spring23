@@ -19,7 +19,7 @@ public class ZombieHitTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (!GetComponentInParent<ZombieHealthController>().GetIsZombieDead())
+        if (!GetComponentInParent<ZombieHealthController>().GetIsZombieDead() && playerHealthController.GetIsAlive())
         {
             if (Time.time - lastAttackTime >= cooldown && GetComponentInParent<ZombieMovement>().GetIsAttacking())
             {

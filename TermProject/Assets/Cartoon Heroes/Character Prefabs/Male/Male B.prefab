@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 596096227}
   m_Layer: 0
   m_Name: CameraFocus
-  m_TagString: Untagged
+  m_TagString: CameraFocus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2062,6 +2062,7 @@ GameObject:
   - component: {fileID: 330299905}
   - component: {fileID: 1717368650}
   - component: {fileID: 1717368651}
+  - component: {fileID: 1111898240}
   m_Layer: 0
   m_Name: Sword_4
   m_TagString: Untagged
@@ -2175,6 +2176,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &1111898240
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242660209070884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: daf4cb1cdf7a5164787c39b820a85b93, type: 3}
 --- !u!1 &1246337271415184
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,7 +5445,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.7
-  m_Radius: 0.5
+  m_Radius: 0.58
   m_SlopeLimit: 30
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -5448,7 +5463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16603693c4174e4b88cc7965a48b914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 0}
   rotationSpeed: 720
   jumpHeight: 2
   gravityMultiplier: 1.5
@@ -5480,21 +5494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a3469d0f59e5943b8e4485cbcb50cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCollectibleCollected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ScoreCounterUI, Assembly-CSharp
-        m_MethodName: updateScoreText
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &189241437
 MonoBehaviour:
   m_ObjectHideFlags: 0

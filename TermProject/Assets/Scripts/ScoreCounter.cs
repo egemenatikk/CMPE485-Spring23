@@ -6,11 +6,17 @@ using UnityEngine.Events;
 public class ScoreCounter : MonoBehaviour
 {
     public int score { get; private set; }
-    public UnityEvent<ScoreCounter> OnCollectibleCollected;
-    
+
+    private ScoreCounterUI scoreCounterUI;
+
+    private void Start()
+    {
+        scoreCounterUI = GameObject.Find("Score Canvas").GetComponentInChildren<ScoreCounterUI>();
+    }
+
     public void CollectibleCollected(int scoreToAdd)
     {
         score += scoreToAdd;
-        OnCollectibleCollected.Invoke(this);
+        scoreCounterUI.UpdateScoreText(score);
     } 
 }

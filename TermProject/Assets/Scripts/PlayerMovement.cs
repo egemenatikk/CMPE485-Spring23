@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isRolling = false;
     private bool isBlocking = false;
 
-    [SerializeField]
     private Transform cameraTransform;
 
     [SerializeField]
@@ -36,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraTransform = GameObject.Find("Main Camera").transform;
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
